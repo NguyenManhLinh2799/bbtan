@@ -53,6 +53,16 @@ public class Level : MonoBehaviour
                 Next();
             }
         }
+
+        // Android: Handle "Back" button
+        if (Application.platform == RuntimePlatform.Android)
+        {
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                PlayerPrefs.SetInt("best", best);
+                Application.Quit();
+            }
+        }
     }
 
     void Next()
